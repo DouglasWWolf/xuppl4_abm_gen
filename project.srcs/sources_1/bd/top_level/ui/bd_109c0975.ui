@@ -1,0 +1,54 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-477,-223",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_TX -pg 1 -lvl 3 -x 680 -y 200 -defaultsOSRD
+preplace port port-id_src_clk -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_src_resetn -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_dst_clk -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_start -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_idle -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD -left
+preplace portBus pattern -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace portBus abm_addr -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace inst rdmx_xmit -pg 1 -lvl 2 -x 500 -y 200 -defaultsOSRD -pinDir AXIS_TX right -pinY AXIS_TX 0R -pinDir S_AXI left -pinY S_AXI 0L -pinDir src_clk left -pinY src_clk 20L -pinDir src_resetn left -pinY src_resetn 40L -pinDir dst_clk left -pinY dst_clk 60L -pinDir packet_data_fifo_full right -pinY packet_data_fifo_full 20R -pinDir addr_fifo_debug right -pinY addr_fifo_debug 40R
+preplace inst system_ila -pg 1 -lvl 2 -x 500 -y 60 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 39 38} -defaultsOSRD -pinDir SLOT_0_AXI left -pinY SLOT_0_AXI 0L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 20L
+preplace inst fill_ram -pg 1 -lvl 1 -x 180 -y 60 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 36 37 38 39 40 35} -defaultsOSRD -pinDir M_AXI right -pinY M_AXI 0R -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L -pinBusDir pattern left -pinBusY pattern 60L -pinBusDir abm_addr left -pinBusY abm_addr 80L -pinDir start left -pinY start 100L -pinDir idle left -pinY idle 0L
+preplace netloc abm_addr_1 1 0 1 NJ 140
+preplace netloc axi_config_pattern1 1 0 1 NJ 120
+preplace netloc eth_1_stream_clk 1 0 2 NJ 260 NJ
+preplace netloc fill_ram_idle 1 0 1 N 60
+preplace netloc source_200Mhz_clk 1 0 2 40 220 340
+preplace netloc source_200Mhz_resetn 1 0 2 20 240 NJ
+preplace netloc start_1 1 0 1 NJ 160
+preplace netloc fill_ram_1_M_AXI 1 1 1 320 60n
+preplace netloc rdmx_xmit_1_AXIS_TX 1 2 1 NJ 200
+levelinfo -pg 1 0 180 500 680
+pagesize -pg 1 -db -bbox -sgen -170 0 790 320
+",
+   "No Loops_ScaleFactor":"1.0",
+   "No Loops_TopLeft":"-437,-183",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_TX -pg 1 -lvl 3 -x 630 -y 110 -defaultsOSRD
+preplace port port-id_src_clk -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port port-id_src_resetn -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port port-id_dst_clk -pg 1 -lvl 0 -x 0 -y 220 -defaultsOSRD
+preplace portBus pattern -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace inst rdmx_xmit_1 -pg 1 -lvl 2 -x 450 -y 130 -defaultsOSRD
+preplace inst fill_ram_1 -pg 1 -lvl 1 -x 150 -y 110 -defaultsOSRD
+preplace netloc source_200Mhz_clk 1 0 2 20 10 280J
+preplace netloc source_200Mhz_resetn 1 0 2 20 210 280J
+preplace netloc axi_config_pattern1 1 0 1 NJ 110
+preplace netloc eth_1_stream_clk 1 0 2 NJ 220 290J
+preplace netloc fill_ram_1_M_AXI 1 1 1 N 100
+preplace netloc rdmx_xmit_1_AXIS_TX 1 2 1 N 110
+levelinfo -pg 1 0 150 450 630
+pagesize -pg 1 -db -bbox -sgen -150 0 730 240
+"
+}
+0

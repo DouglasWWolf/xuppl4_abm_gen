@@ -1,0 +1,78 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-454,-163",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"/cabletest/channel_0",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port AXIS_OUT_0 -pg 1 -lvl 4 -x 1280 -y 240 -defaultsOSRD
+preplace port AXIS_IN_0 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port AXIS_OUT_1 -pg 1 -lvl 4 -x 1280 -y 430 -defaultsOSRD
+preplace port AXIS_IN_1 -pg 1 -lvl 0 -x 0 -y 510 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD
+preplace port port-id_eth0_up -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_eth1_up -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
+preplace port port-id_RSFEC_ENABLE -pg 1 -lvl 4 -x 1280 -y 180 -defaultsOSRD
+preplace port port-id_resetn_out -pg 1 -lvl 4 -x 1280 -y 370 -defaultsOSRD
+preplace portBus CMAC_TXPRE -pg 1 -lvl 4 -x 1280 -y 160 -defaultsOSRD
+preplace inst channel_0 -pg 1 -lvl 2 -x 650 -y 60 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 17 18 15 16 14 13} -defaultsOSRD -pinDir AXIS_OUT right -pinY AXIS_OUT 180R -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 160L -pinBusDir CYCLES_PER_PACKET left -pinBusY CYCLES_PER_PACKET 180L -pinBusDir pg_control left -pinBusY pg_control 120L -pinBusDir PACKET_COUNT left -pinBusY PACKET_COUNT 140L -pinBusDir pg_status left -pinBusY pg_status 100L -pinBusDir pr_status left -pinBusY pr_status 80L
+preplace inst channel_1 -pg 1 -lvl 2 -x 650 -y 430 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 14 15 17 13 18 16} -defaultsOSRD -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir AXIS_IN left -pinY AXIS_IN 80L -pinDir clk left -pinY clk 100L -pinDir resetn left -pinY resetn 140L -pinBusDir CYCLES_PER_PACKET left -pinBusY CYCLES_PER_PACKET 160L -pinBusDir control left -pinBusY control 200L -pinBusDir PACKET_COUNT left -pinBusY PACKET_COUNT 120L -pinBusDir pg_status left -pinBusY pg_status 220L -pinBusDir pr_status left -pinBusY pr_status 180L
+preplace inst rate_limiter_0 -pg 1 -lvl 3 -x 1080 -y 240 -swap {0 1 2 3 4 5 6 7 8 9 10 11 14 12 13} -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir clk left -pinY clk 70L -pinDir resetn left -pinY resetn 30L -pinBusDir BYTES_PER_USEC left -pinBusY BYTES_PER_USEC 50L
+preplace inst rate_limiter_1 -pg 1 -lvl 3 -x 1080 -y 430 -swap {0 1 2 3 4 5 6 7 8 9 10 11 14 12 13} -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir clk left -pinY clk 60L -pinDir resetn left -pinY resetn 20L -pinBusDir BYTES_PER_USEC left -pinBusY BYTES_PER_USEC 40L
+preplace inst cabletest_ctl -pg 1 -lvl 1 -x 190 -y 140 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 24 32 23 33 22 31 30 27 28 26 25 29} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 100L -pinDir eth0_up left -pinY eth0_up 120L -pinDir eth1_up left -pinY eth1_up 140L -pinBusDir pg_control_1 right -pinBusY pg_control_1 40R -pinBusDir pg_control_2 right -pinBusY pg_control_2 290R -pinBusDir pg_status_1 right -pinBusY pg_status_1 20R -pinBusDir pg_status_2 right -pinBusY pg_status_2 310R -pinBusDir pr_status_1 right -pinBusY pr_status_1 0R -pinBusDir pr_status_2 right -pinBusY pr_status_2 270R -pinBusDir CYCLES_PER_PACKET right -pinBusY CYCLES_PER_PACKET 250R -pinBusDir PACKET_COUNT right -pinBusY PACKET_COUNT 190R -pinBusDir BYTES_PER_USEC right -pinBusY BYTES_PER_USEC 210R -pinDir RSFEC_ENABLE right -pinY RSFEC_ENABLE 170R -pinBusDir CMAC_TXPRE right -pinBusY CMAC_TXPRE 150R -pinDir resetn_out right -pinY resetn_out 230R
+preplace netloc cabletest_ctl_BYTES_PER_USEC 1 1 2 NJ 350 900
+preplace netloc cabletest_ctl_CMAC_TXPRE 1 1 3 N 290 820J 160 NJ
+preplace netloc cabletest_ctl_CYCLES_PER_PACKET 1 1 1 480 240n
+preplace netloc cabletest_ctl_PACKET_COUNT 1 1 1 420 200n
+preplace netloc cabletest_ctl_RSFEC_ENABLE 1 1 3 N 310 840J 180 NJ
+preplace netloc cabletest_ctl_pg_control_1 1 1 1 N 180
+preplace netloc cabletest_ctl_resetn_out 1 1 3 440 330 880J 370 N
+preplace netloc channel_0_status 1 1 1 N 160
+preplace netloc channel_0_status1 1 1 1 N 140
+preplace netloc channel_1_pg_status 1 1 1 360 450n
+preplace netloc channel_1_pr_status 1 1 1 400 410n
+preplace netloc cmac_cdc_user0_aligned 1 0 1 NJ 260
+preplace netloc cmac_cdc_user1_aligned 1 0 1 NJ 280
+preplace netloc control_1 1 1 1 380 430n
+preplace netloc source_200Mhz_clk 1 0 3 20 80 460 370 860
+preplace netloc source_200Mhz_resetn 1 0 1 N 240
+preplace netloc Conn2 1 0 2 NJ 60 NJ
+preplace netloc Conn4 1 0 2 NJ 510 NJ
+preplace netloc channel_0_AXIS_OUT 1 2 1 N 240
+preplace netloc channel_1_AXIS_OUT 1 2 1 N 430
+preplace netloc rate_limiter_0_AXIS_OUT 1 3 1 N 240
+preplace netloc rate_limiter_1_AXIS_OUT 1 3 1 N 430
+preplace netloc smartconnect_M00_AXI 1 0 1 NJ 140
+levelinfo -pg 1 0 190 650 1080 1280
+pagesize -pg 1 -db -bbox -sgen -120 0 1460 700
+",
+   "No Loops_ScaleFactor":"0.948068",
+   "No Loops_TopLeft":"-120,-12",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x -50 -y 160 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -50 -y 50 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x -50 -y 70 -defaultsOSRD
+preplace port port-id_eth0_up -pg 1 -lvl 0 -x -50 -y 220 -defaultsOSRD
+preplace port port-id_eth1_up -pg 1 -lvl 0 -x -50 -y 240 -defaultsOSRD
+preplace inst cabletest_ctl -pg 1 -lvl 1 -x 210 -y 364 -defaultsOSRD
+preplace inst channel_0 -pg 1 -lvl 1 -x 210 -y 54 -defaultsOSRD
+preplace inst channel_0|packet_gen -pg 1 -lvl 1 -x 380 -y 114 -defaultsOSRD
+preplace netloc source_200Mhz_clk 1 0 1 10 50n
+preplace netloc source_200Mhz_resetn 1 0 1 -10 70n
+preplace netloc cmac_cdc_user0_aligned 1 0 1 -20J 220n
+preplace netloc cmac_cdc_user1_aligned 1 0 1 -30J 240n
+preplace netloc smartconnect_M00_AXI 1 0 1 0J 160n
+preplace netloc channel_0|clk_1 1 0 1 N 74
+preplace netloc channel_0|resetn_1 1 0 1 N 94
+levelinfo -pg 1 -50 210 600
+levelinfo -hier channel_0 * 380 *
+pagesize -pg 1 -db -bbox -sgen -160 -20 600 510
+pagesize -hier channel_0 -db -bbox -sgen 170 14 570 214
+"
+}
+0
