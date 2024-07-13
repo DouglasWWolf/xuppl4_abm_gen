@@ -195,6 +195,14 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>gt_txdiffctrl</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>gt_txdiffctrl</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>gt_txprecursor</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -440,6 +448,22 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>gt_txdiffctrl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">19</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>stat_rx_aligned</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -511,6 +535,11 @@
         <spirit:displayName>Tx Precursor</spirit:displayName>
         <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TX_PRECURSOR" spirit:bitStringLength="5">&quot;00000&quot;</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TX_DIFF</spirit:name>
+        <spirit:displayName>Tx Diff</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TX_DIFF" spirit:bitStringLength="5">&quot;11000&quot;</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:description>xilinx.com:module_ref:cmac_control:1.0</spirit:description>
@@ -524,6 +553,11 @@
       <spirit:name>TX_PRECURSOR</spirit:name>
       <spirit:displayName>Tx Precursor</spirit:displayName>
       <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.TX_PRECURSOR" spirit:bitStringLength="5">&quot;00000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TX_DIFF</spirit:name>
+      <spirit:displayName>Tx Diff</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.TX_DIFF" spirit:bitStringLength="5">&quot;11000&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

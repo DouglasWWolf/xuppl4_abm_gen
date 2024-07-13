@@ -141,6 +141,14 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>gt_txdiffctrl</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>gt_txdiffctrl</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>gt_txprecursor</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -243,7 +251,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>13beb664</spirit:value>
+            <spirit:value>fc4f1e77</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -256,7 +264,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>13beb664</spirit:value>
+            <spirit:value>fc4f1e77</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -405,6 +413,23 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>gt_txdiffctrl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">19</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>stat_rx_aligned</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -481,6 +506,11 @@
         <spirit:displayName>Tx Precursor</spirit:displayName>
         <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TX_PRECURSOR" spirit:bitStringLength="5">&quot;00000&quot;</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TX_DIFF</spirit:name>
+        <spirit:displayName>Tx Diff</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TX_DIFF" spirit:bitStringLength="5">&quot;11000&quot;</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
@@ -489,7 +519,7 @@
       <spirit:file>
         <spirit:name>xgui/cmac_control_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b9a27407</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_5893fd74</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -505,6 +535,11 @@
       <spirit:name>TX_PRECURSOR</spirit:name>
       <spirit:displayName>Tx Precursor</spirit:displayName>
       <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.TX_PRECURSOR" spirit:bitStringLength="5">&quot;00000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TX_DIFF</spirit:name>
+      <spirit:displayName>Tx Diff</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.TX_DIFF" spirit:bitStringLength="5">&quot;11000&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -526,7 +561,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-06-15T23:54:41Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-07-13T06:03:13Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>

@@ -19,13 +19,13 @@
       },
       "eth_0": {
         "cmac": "",
-        "cmac_control": "",
-        "axis_register_slice": ""
+        "axis_register_slice": "",
+        "cmac_control": ""
       },
       "eth_1": {
         "cmac": "",
-        "cmac_control": "",
-        "axis_register_slice": ""
+        "axis_register_slice": "",
+        "cmac_control": ""
       },
       "smartconnect": "",
       "status_leds": "",
@@ -478,6 +478,12 @@
               }
             }
           },
+          "axis_register_slice": {
+            "vlnv": "xilinx.com:ip:axis_register_slice:1.1",
+            "xci_name": "top_level_axis_register_slice_0_0",
+            "xci_path": "ip/top_level_axis_register_slice_0_0/top_level_axis_register_slice_0_0.xci",
+            "inst_hier_path": "eth_0/axis_register_slice"
+          },
           "cmac_control": {
             "vlnv": "xilinx.com:module_ref:cmac_control:1.0",
             "xci_name": "top_level_cmac_control_0_0",
@@ -543,6 +549,12 @@
                 "vlnv_bus_definition": "xilinx.com:display_cmac_usplus:drp_ports_int:2.0",
                 "vlnv": "xilinx.com:display_cmac_usplus:drp_ports:2.0",
                 "port_maps": {
+                  "gt_txdiffctrl": {
+                    "physical_name": "gt_txdiffctrl",
+                    "direction": "O",
+                    "left": "19",
+                    "right": "0"
+                  },
                   "gt_txprecursor": {
                     "physical_name": "gt_txprecursor",
                     "direction": "O",
@@ -626,12 +638,6 @@
                 "direction": "O"
               }
             }
-          },
-          "axis_register_slice": {
-            "vlnv": "xilinx.com:ip:axis_register_slice:1.1",
-            "xci_name": "top_level_axis_register_slice_0_0",
-            "xci_path": "ip/top_level_axis_register_slice_0_0/top_level_axis_register_slice_0_0.xci",
-            "inst_hier_path": "eth_0/axis_register_slice"
           }
         },
         "interface_nets": {
@@ -728,8 +734,8 @@
               "cmac/gt_txusrclk2",
               "stream_clk",
               "cmac/rx_clk",
-              "cmac_control/rx_clk",
-              "axis_register_slice/aclk"
+              "axis_register_slice/aclk",
+              "cmac_control/rx_clk"
             ]
           },
           "sys_resetn_1": {
@@ -821,6 +827,12 @@
               }
             }
           },
+          "axis_register_slice": {
+            "vlnv": "xilinx.com:ip:axis_register_slice:1.1",
+            "xci_name": "top_level_axis_register_slice_1",
+            "xci_path": "ip/top_level_axis_register_slice_1/top_level_axis_register_slice_1.xci",
+            "inst_hier_path": "eth_1/axis_register_slice"
+          },
           "cmac_control": {
             "vlnv": "xilinx.com:module_ref:cmac_control:1.0",
             "xci_name": "top_level_cmac_control_0_1",
@@ -886,6 +898,12 @@
                 "vlnv_bus_definition": "xilinx.com:display_cmac_usplus:drp_ports_int:2.0",
                 "vlnv": "xilinx.com:display_cmac_usplus:drp_ports:2.0",
                 "port_maps": {
+                  "gt_txdiffctrl": {
+                    "physical_name": "gt_txdiffctrl",
+                    "direction": "O",
+                    "left": "19",
+                    "right": "0"
+                  },
                   "gt_txprecursor": {
                     "physical_name": "gt_txprecursor",
                     "direction": "O",
@@ -969,12 +987,6 @@
                 "direction": "O"
               }
             }
-          },
-          "axis_register_slice": {
-            "vlnv": "xilinx.com:ip:axis_register_slice:1.1",
-            "xci_name": "top_level_axis_register_slice_1",
-            "xci_path": "ip/top_level_axis_register_slice_1/top_level_axis_register_slice_1.xci",
-            "inst_hier_path": "eth_1/axis_register_slice"
           }
         },
         "interface_nets": {
@@ -1063,8 +1075,8 @@
               "cmac/gt_txusrclk2",
               "stream_clk",
               "cmac/rx_clk",
-              "cmac_control/rx_clk",
-              "axis_register_slice/aclk"
+              "axis_register_slice/aclk",
+              "cmac_control/rx_clk"
             ]
           },
           "init_clk_divider_init_clk": {
