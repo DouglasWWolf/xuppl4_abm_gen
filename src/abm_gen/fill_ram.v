@@ -19,9 +19,6 @@ module fill_ram # (parameter AW=32, parameter DW=512)
     // each outgoing burst
     input[31:0] pattern,
 
-    // The RDMX target address for the ABM
-    input[31:0] abm_addr,
-
     // When this strobes high, we'll transmit an ABM
     input   start,
     
@@ -76,6 +73,9 @@ module fill_ram # (parameter AW=32, parameter DW=512)
     //==========================================================================
 
 );
+
+// This is the RDMX address where the ABM lives on the remote system
+localparam RDMX_ADDR = 64'h0000_0000_0000_0000;
 
 // This is the total size of the ABM in bytes (1 MB)
 localparam ABM_SIZE = 32'h10_0000;
@@ -132,7 +132,7 @@ always @(posedge clk) begin
 
         0:  if (start) begin
                 aw_burst      <= 1;
-                M_AXI_AWADDR  <= abm_addr;
+                M_AXI_AWADDR  <= RDMX_ADDR;
                 awsm_state    <= 1;
             end
 

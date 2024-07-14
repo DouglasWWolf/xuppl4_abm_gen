@@ -1,0 +1,90 @@
+#
+# Sends an ABM out each of the QSFP ports
+#
+# This script and the RTL design it uses were written by D. Wolf
+#
+#  >>>===========================================<<<
+#  >>> Before running this script, make sure you <<<
+#  >>> have a reserved buffer at 0x1_0000_0000!! <<<
+#  >>>===========================================<<<
+#
+
+# Fetch the two filesnames from the command line
+fname0=$1
+fname1=$2
+
+# Make sure the user specified at least one filename
+if [ "$fname0" == "" ]; then
+    echo "Need to supply either 1 or 2 filenames on the command line"  1>&2
+    exit 1
+fi
+
+# If the user didn't specify a 2nd filename, use the same file for both channels
+test "$fname1" == "" && fname1=$fname0
+
+# Make sure the first file is readable
+if [ ! -f $fname0 ]; then
+    echo "File not found: $fname0"  1>&2
+    exit 1
+fi
+
+# Make sure the second file is readable
+if [ ! -f $fname1 ]; then
+    echo "File not found: $fname1" 1>&2
+    exit 1
+fi
+
+# Define the RTL registers
+REG_RTL_ID=0x0014
+BASE_ADDR=0x1000
+     REG_PATTERN0=$((BASE_ADDR + 0*4));
+     REG_PATTERN1=$((BASE_ADDR + 1*4));
+REG_START_PATTERN=$((BASE_ADDR + 2*4));
+    REG_START_DMA=$((BASE_ADDR + 3*4));
+   REG_RUN_STATUS=$((BASE_ADDR + 4*4));
+  REG_QSFP_STATUS=$((BASE_ADDR + 5*4));
+   REG_DMA_ADDR0H=$((BASE_ADDR + 6*4));
+   REG_DMA_ADDR0L=$((BASE_ADDR + 7*4));
+   REG_DMA_ADDR1H=$((BASE_ADDR + 8*4));
+   REG_DMA_ADDR1L=$((BASE_ADDR + 9*4));
+
+
+# Make sure we have the correct RTL loaded
+if [ $(pcireg -dec $REG_RTL_ID) -ne 6142024 ]; then
+    echo "abm_gen RTL not loaded" 1>&2
+    exit 1
+fi
+
+# These are addresses of the two buffers in reserved RAM
+host_addr0=0x1_0000_0000
+host_addr1=0x1_0010_0000
+
+# Load the files into the buffers in RAM
+physram $host_addr0 -load $fname0
+physram $host_addr1 -load $fname1
+
+# Tell the FPGA where those buffers are
+pcireg -wide $REG_DMA_ADDR0H $host_addr0
+pcireg -wide $REG_DMA_ADDR1H $host_addr1
+
+# Fetch the "PCS alignment" status bits
+aligned=$(pcireg -dec $REG_QSFP_STATUS)
+
+# Tell the user if one of the cables isn't plugged in
+test $((aligned & 1)) -eq 0 && echo "QSFP_0 appears disconnected!" 1>&2
+test $((aligned & 2)) -eq 0 && echo "QSFP_1 appears disconnected!" 1>&2
+test $aligned -ne 3 && exit 1
+
+# Ensure that we're not currently sending an ABM
+while [ $(pcireg -dec $REG_RUN_STATUS) -ne 0 ]; do
+    sleep .01
+done
+
+# Send the ABM
+pcireg $REG_START_DMA 3
+
+# Wait for the send to complete
+while [ $(pcireg -dec $REG_RUN_STATUS) -ne 0 ]; do
+    sleep .01
+done
+

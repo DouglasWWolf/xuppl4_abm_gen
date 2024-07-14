@@ -29,11 +29,11 @@ preplace netloc axis_tx_1 1 0 1 NJ 350
 preplace netloc cmac_axis_rx 1 2 1 NJ 110
 preplace netloc cmac_control_ctl_rx 1 1 1 N 110
 preplace netloc cmac_control_ctl_tx 1 1 1 N 90
+preplace netloc cmac_control_gt_trans_debug 1 1 1 N 130
 preplace netloc cmac_control_rs_fec 1 1 1 N 150
 preplace netloc cmac_stat_rx 1 1 1 N 70
 preplace netloc cmac_usplus_0_gt_serial_port 1 2 1 NJ 70
 preplace netloc gt_ref_clk_0_1 1 2 1 NJ 90
-preplace netloc cmac_control_gt_trans_debug 1 1 1 N 130
 levelinfo -pg 1 0 430 840 1050
 pagesize -pg 1 -db -bbox -sgen -130 -60 1180 590
 ",
