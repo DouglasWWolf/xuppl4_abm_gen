@@ -15,7 +15,7 @@
         "bridge_input_clock": "",
         "pcie_bridge": "",
         "one": "",
-        "smartconnect": ""
+        "axi_crossbar": ""
       },
       "eth_0": {
         "cmac": "",
@@ -348,68 +348,39 @@
             "xci_path": "ip/top_level_xlconstant_0_0/top_level_xlconstant_0_0.xci",
             "inst_hier_path": "pcie/one"
           },
-          "smartconnect": {
-            "vlnv": "xilinx.com:ip:smartconnect:1.0",
-            "xci_name": "top_level_smartconnect_0_3",
-            "xci_path": "ip/top_level_smartconnect_0_3/top_level_smartconnect_0_3.xci",
-            "inst_hier_path": "pcie/smartconnect",
+          "axi_crossbar": {
+            "vlnv": "xilinx.com:ip:axi_crossbar:2.1",
+            "xci_name": "top_level_axi_crossbar_0_0",
+            "xci_path": "ip/top_level_axi_crossbar_0_0/top_level_axi_crossbar_0_0.xci",
+            "inst_hier_path": "pcie/axi_crossbar",
+            "parameters": {
+              "M00_S00_WRITE_CONNECTIVITY": {
+                "value": "0"
+              },
+              "M00_S01_WRITE_CONNECTIVITY": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "1"
+              },
+              "NUM_SI": {
+                "value": "2"
+              }
+            },
             "interface_ports": {
               "S00_AXI": {
-                "mode": "Slave",
-                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                "parameters": {
-                  "NUM_READ_OUTSTANDING": {
-                    "value": "2"
-                  },
-                  "NUM_WRITE_OUTSTANDING": {
-                    "value": "2"
-                  }
-                },
+                "mode": "Slave",
                 "bridges": [
                   "M00_AXI"
                 ]
               },
               "S01_AXI": {
-                "mode": "Slave",
-                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                "parameters": {
-                  "NUM_READ_OUTSTANDING": {
-                    "value": "2"
-                  },
-                  "NUM_WRITE_OUTSTANDING": {
-                    "value": "2"
-                  }
-                },
+                "mode": "Slave",
                 "bridges": [
                   "M00_AXI"
                 ]
-              },
-              "M00_AXI": {
-                "mode": "Master",
-                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-                "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                "parameters": {
-                  "MAX_BURST_LENGTH": {
-                    "value": "256"
-                  },
-                  "NUM_READ_OUTSTANDING": {
-                    "value": "2"
-                  },
-                  "NUM_WRITE_OUTSTANDING": {
-                    "value": "2"
-                  },
-                  "RUSER_BITS_PER_BYTE": {
-                    "value": "0"
-                  },
-                  "SUPPORTS_NARROW_BURST": {
-                    "value": "0"
-                  },
-                  "WUSER_BITS_PER_BYTE": {
-                    "value": "0"
-                  }
-                }
               }
             }
           }
@@ -424,25 +395,25 @@
           "S00_AXI_1": {
             "interface_ports": [
               "S00_AXI",
-              "smartconnect/S00_AXI"
+              "axi_crossbar/S00_AXI"
             ]
           },
           "S01_AXI_1": {
             "interface_ports": [
               "S01_AXI",
-              "smartconnect/S01_AXI"
+              "axi_crossbar/S01_AXI"
+            ]
+          },
+          "axi_crossbar_0_M00_AXI": {
+            "interface_ports": [
+              "pcie_bridge/S_AXI_B",
+              "axi_crossbar/M00_AXI"
             ]
           },
           "smartconnect_0_M01_AXI": {
             "interface_ports": [
               "S_AXI_LITE",
               "pcie_bridge/S_AXI_LITE"
-            ]
-          },
-          "smartconnect_M00_AXI": {
-            "interface_ports": [
-              "smartconnect/M00_AXI",
-              "pcie_bridge/S_AXI_B"
             ]
           },
           "xdma_0_M_AXI_B": {
@@ -481,14 +452,14 @@
             "ports": [
               "pcie_bridge/axi_aresetn",
               "axi_aresetn",
-              "smartconnect/aresetn"
+              "axi_crossbar/aresetn"
             ]
           },
           "xdma_0_axi_aclk": {
             "ports": [
               "pcie_bridge/axi_aclk",
               "axi_aclk",
-              "smartconnect/aclk"
+              "axi_crossbar/aclk"
             ]
           }
         }
@@ -2581,6 +2552,12 @@
                         "left": "7",
                         "right": "0"
                       },
+                      "ARSIZE": {
+                        "physical_name": "DST_AXI_ARSIZE",
+                        "direction": "O",
+                        "left": "2",
+                        "right": "0"
+                      },
                       "ARBURST": {
                         "physical_name": "DST_AXI_ARBURST",
                         "direction": "O",
@@ -2747,9 +2724,6 @@
                       "CLK_DOMAIN": {
                         "value": "top_level_xdma_0_0_axi_aclk",
                         "value_src": "default_prop"
-                      },
-                      "master_id": {
-                        "value": "4"
                       }
                     },
                     "address_space_ref": "SRC_AXI",
@@ -2873,6 +2847,12 @@
                         "physical_name": "SRC_AXI_ARLEN",
                         "direction": "O",
                         "left": "7",
+                        "right": "0"
+                      },
+                      "ARSIZE": {
+                        "physical_name": "SRC_AXI_ARSIZE",
+                        "direction": "O",
+                        "left": "2",
                         "right": "0"
                       },
                       "ARBURST": {
@@ -4267,6 +4247,12 @@
                         "left": "7",
                         "right": "0"
                       },
+                      "ARSIZE": {
+                        "physical_name": "DST_AXI_ARSIZE",
+                        "direction": "O",
+                        "left": "2",
+                        "right": "0"
+                      },
                       "ARBURST": {
                         "physical_name": "DST_AXI_ARBURST",
                         "direction": "O",
@@ -4433,9 +4419,6 @@
                       "CLK_DOMAIN": {
                         "value": "top_level_xdma_0_0_axi_aclk",
                         "value_src": "default_prop"
-                      },
-                      "master_id": {
-                        "value": "5"
                       }
                     },
                     "address_space_ref": "SRC_AXI",
@@ -4559,6 +4542,12 @@
                         "physical_name": "SRC_AXI_ARLEN",
                         "direction": "O",
                         "left": "7",
+                        "right": "0"
+                      },
+                      "ARSIZE": {
+                        "physical_name": "SRC_AXI_ARSIZE",
+                        "direction": "O",
+                        "left": "2",
                         "right": "0"
                       },
                       "ARBURST": {

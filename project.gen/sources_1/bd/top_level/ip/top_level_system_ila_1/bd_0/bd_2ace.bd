@@ -92,7 +92,7 @@
           },
           "ID_WIDTH": {
             "value": "0",
-            "value_src": "default_prop"
+            "value_src": "default"
           },
           "INSERT_VIP": {
             "value": "0",

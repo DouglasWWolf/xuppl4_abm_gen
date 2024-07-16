@@ -1386,7 +1386,6 @@
       <xilinx:displayName>AXI4-Stream Register Slice</xilinx:displayName>
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_FIFO</xilinx:xpmLibrary>
-        <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
       <xilinx:coreRevision>24</xilinx:coreRevision>
       <xilinx:configElementInfos>
